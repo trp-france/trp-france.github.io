@@ -3,7 +3,7 @@ var vcp = vcp || {};
 vcp.estimate = (function($){
     "use strict";
 
-    var BACKEND_API_RIDE = 'http://localhost:8080/rides';
+    var BACKEND_API_RIDE = 'https://trp.cleverapps.io/rides';
 
     var placeIdOrigin, placeIdDestination, lastBookOptions;
 
@@ -16,7 +16,7 @@ vcp.estimate = (function($){
     var yourRideVanNightPrice = document.getElementById('price-van-night');
 
     var formatPrice = function(priceInCentimes) {
-        return (priceInCentimes / 100) + ' €';
+        return Math.round(priceInCentimes / 100) + ' €';
     };
 
 
@@ -59,7 +59,7 @@ vcp.estimate = (function($){
             .fail(function(error){
                     console.log('ko', error)
 
-            })
+            });
         }
     };
 
@@ -90,10 +90,12 @@ vcp.estimate = (function($){
 
                 if(index === 0) {
                     placeIdOrigin = placeId;
+                    localStorage.setItem('place_origin', JSON.stringify(this.getPlace()))
                 }
 
                 if (index === 1) {
                     placeIdDestination = placeId;
+                    localStorage.setItem('place_destination', JSON.stringify(this.getPlace()))
                 }
 
                 estimate();
@@ -108,12 +110,12 @@ vcp.estimate = (function($){
 
    document.getElementById('reserver-van').addEventListener('click', function (ev) {
        ev.preventDefault();
-       goToBookPage('van')
+       goToBookPage('VAN')
    });
 
     document.getElementById('reserver-berline').addEventListener('click', function (ev) {
         ev.preventDefault();
-        goToBookPage('berline');
+        goToBookPage('BERLINE');
     });
 
 
