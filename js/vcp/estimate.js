@@ -85,7 +85,10 @@ vcp.estimate = (function($){
             return input;
         })
         .map(function(input) {
-            return new google.maps.places.Autocomplete(input)
+            var options = {
+                componentRestrictions: {country: "fr"}
+            };
+            return new google.maps.places.Autocomplete(input, options)
         })
         .forEach(function(autocomplete, index) {
             autocomplete.addListener('place_changed', function() {
