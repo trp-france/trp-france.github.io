@@ -3,6 +3,10 @@ var vcp = vcp || {};
 vcp.estimate = (function($){
     "use strict";
 
+    if(location.search.indexOf('bookingConfirmation') >= 0) {
+        document.querySelector('.booking-confirmation').classList.remove('hidden');
+    }
+
     var BACKEND_API_RIDE = 'https://trp.cleverapps.io/rides';
 
     var placeIdOrigin, placeIdDestination, lastBookOptions;
