@@ -9,9 +9,9 @@
 <link href="css/style.css" rel="stylesheet">
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="images/favicon.ico" type="image/x-icon">
- <!--
+
   <script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuhzcA0L_xkiFOJrKKFx3n08iv_OVuXJQ&libraries=places"></script>
-  -->
+
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -102,125 +102,166 @@ Tous conforts : Wi-Fi, eau, tablette...</p>
     </section>
     <!--End Main Slider-->
     
-  <router-outlet _ngcontent-c0=""></router-outlet>
-  <app-main _nghost-c3="" ng-version="4.0.0">
-<app-booking _ngcontent-c3="" _nghost-c4="">
-<div _ngcontent-c4="" class="booking-block">
+<div class="booking-block">
 
 
-<section _ngcontent-c4="" class="booking-form">
-  <div _ngcontent-c4="" class="auto-container">
-    <div _ngcontent-c4="" class="booking-form-inner billing-section wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-
-      
-      <div _ngcontent-c4="" class="default-form">
-        <form _ngcontent-c4="" id="reserver-votre-course" method="post" novalidate="" class="ng-dirty ng-touched ng-valid">
-          <div _ngcontent-c4="" class="row billing-details">
-            <div _ngcontent-c4="" class="col-md-12 col-sm-12 col-xs-12">
-              
-              <div _ngcontent-c4="" class="sec-title">
-                <div _ngcontent-c4="" class="inner-title-box">
-                  <h2 _ngcontent-c4="">ESTIMEZ <span _ngcontent-c4="">VOTRE COURSE</span></h2>
-                </div>
-              </div>
-
-              <div _ngcontent-c4="" class="form-group country col-md-12 col-sm-12 col-xs-12">
-                <div _ngcontent-c4="" class="group-inner">
-                  <input _ngcontent-c4="" id="pickup-location" name="pickup-location" ng2-google-place-autocomplete="" placeholder="Saisir le lieu de prise en charge" required="" class="ng-untouched ng-pristine ng-invalid" autocomplete="off" type="text">
-                </div>
-              </div>
-
-              <div _ngcontent-c4="" class="form-group col-md-12 col-sm-12 col-xs-12">
-                <div _ngcontent-c4="" class="group-inner">
-                  <input _ngcontent-c4="" id="destination" name="destination" ng2-google-place-autocomplete="" placeholder="Saisir votre destination" required="" class="ng-untouched ng-pristine ng-invalid" autocomplete="off" type="text">
-                </div>
-              </div>
+    <section class="booking-form">
+      <div class="auto-container">
+        <div class="booking-form-inner billing-section wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
 
 
+          <div class="default-form">
+            <form id="reserver-votre-course" method="post" novalidate="" class="ng-dirty ng-touched ng-valid">
+              <div class="row billing-details">
+                <div class="col-md-12 col-sm-12 col-xs-12">
 
-
-
-            </div>
-
-              <div _ngcontent-c4="" class="product-column col-md-6 col-sm-6 col-xs-12">
-                <div _ngcontent-c4="" class="inner-box">
-                  <h3 _ngcontent-c4="">Berline</h3>
-                  <div _ngcontent-c4="" class="image-box">
-                    <figure _ngcontent-c4="" class="image"><img _ngcontent-c4="" alt="" src="images/berline.png"></figure>
+                  <div class="sec-title">
+                    <div class="inner-title-box">
+                      <h2>ESTIMEZ <span>VOTRE COURSE</span></h2>
+                    </div>
                   </div>
-                  <!---->
-                </div>
 
-              </div><div _ngcontent-c4="" class="product-column col-md-6 col-sm-6 col-xs-12">
-                <div _ngcontent-c4="" class="inner-box">
-                  <h3 _ngcontent-c4="">Van</h3>
-                  <div _ngcontent-c4="" class="image-box">
-                    <figure _ngcontent-c4="" class="image"><img _ngcontent-c4="" alt="" src="images/van.png"></figure>
+                  <div class="form-group country col-md-12 col-sm-12 col-xs-12">
+                    <div class="group-inner">
+                      <input id="origin" name="pickup-location" ng2-google-place-autocomplete="" placeholder="Saisir le lieu de prise en charge" required="" class="ng-untouched ng-pristine ng-invalid" autocomplete="off" type="text">
+                    </div>
                   </div>
-                  <!---->
+
+                  <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                    <div class="group-inner">
+                      <input id="destination" name="destination" ng2-google-place-autocomplete="" placeholder="Saisir votre destination" required="" class="ng-untouched ng-pristine ng-invalid" autocomplete="off" type="text">
+                    </div>
+                  </div>
+
+                    <!-- Bloc votre trajet -->
+
+
+
+                    <div  class="form-group col-md-12 col-sm-12 col-xs-12 hidden your-ride">
+                        <div class="group-inner">
+
+                            <div class="inner-title-box">
+                                <h2>VOTRE TRAJET</h2>
+                            </div>
+                            <p>Vous allez parcourir <b id="your-ride-distance"></b>.</p>
+                            <p>Nous passerons ensemble <b id="your-ride-duration"></b>.</p>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="product-column col-md-6 col-sm-6 col-xs-12">
+                        <div class="inner-box">
+                            <h3>Berline</h3>
+                            <div class="image-box">
+                                <figure class="image"><img alt="" src="images/berline.png"></figure>
+                            </div>
+                            <div class="lower-content hidden your-ride">
+
+                                <ul class="list-group">
+                                    <li class="list-group-item"><i aria-hidden="true" class="fa fa-sun-o"></i> Tarif de jour : <span class="price"><strong id="price-berline-day"></strong></span></li>
+                                    <li class="list-group-item"><i aria-hidden="true" class="fa fa-moon-o"></i> Tarif de nuit : <span class="price"><strong id="price-berline-night"></strong></span></li>
+                                </ul>
+                                <div class="btn-outer"><a id="reserver-berline" class="theme-btn btn-style-three">Réserver</a></div>             </div>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="product-column col-md-6 col-sm-6 col-xs-12">
+                        <div class="inner-box">
+                            <h3>Van</h3>
+                            <div class="image-box">
+                                <figure class="image"><img alt="" src="images/van.png"></figure>
+                            </div>
+                            <div class="lower-content hidden your-ride">
+
+                            <ul class="list-group">
+                                <li class="list-group-item"><i aria-hidden="true" class="fa fa-sun-o"></i> Tarif de jour : <span class="price"><strong id="price-van-day"></strong></span></li>
+                                <li class="list-group-item"><i aria-hidden="true" class="fa fa-moon-o"></i> Tarif de nuit : <span class="price"><strong id="price-van-night"></strong></span></li>
+                            </ul>
+                            <div class="btn-outer"><a id="reserver-van" class="theme-btn btn-style-three">Réserver</a></div>             </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
                 </div>
 
+
+
+
+
+
+
+
+
+                </div>
+
+
+
+              <div class="row billing-details paiement">
+                <div class="inner-title-box">
+                  <img alt="" src="images/paiement.jpg">
+                </div>
               </div>
 
+            </form>
 
-            </div>
+
+
+
           </div>
 
-          <div _ngcontent-c4="" class="row billing-details paiement">
-            <div _ngcontent-c4="" class="inner-title-box">
-              <img _ngcontent-c4="" alt="" src="images/paiement.jpg">
-            </div>
-          </div>
-            
-        </form>
-
-
-
-
-      </div>
-      
-    </div>
-  </div>
-</section>
-
-</div>
-</app-booking>
-<app-service-offer _ngcontent-c3="" _nghost-c5="">
-<section _ngcontent-c5="" class="services-section-one">
-  <div _ngcontent-c5="" class="auto-container">
-    <div _ngcontent-c5="" class="content-container">
-      <div _ngcontent-c5="" class="sec-title">
-        <div _ngcontent-c5="" class="inner-title-box">
-          <h2 _ngcontent-c5="">RESTEZ A VOTRE PLACE <br _ngcontent-c5=""> ON S'OCCUPE DE TOUT !</h2>
-          <h4 _ngcontent-c5="" class="rotate-title">NOS SERVICES</h4>
         </div>
       </div>
 
-      <div _ngcontent-c5="" class="row">
+    </section>
 
-        <div _ngcontent-c5="" class="col-xs-12">
+</div>
+
+<section class="services-section-one">
+  <div class="auto-container">
+    <div class="content-container">
+      <div class="sec-title">
+        <div class="inner-title-box">
+          <h2>RESTEZ A VOTRE PLACE <br> ON S'OCCUPE DE TOUT !</h2>
+          <h4 class="rotate-title">NOS SERVICES</h4>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-xs-12">
           TRP s'adresse aux professionnels qui se trouvent en zone rural
  pour permettre à vos collaborateurs de se transporter efficacement là 
 où ils le souhaitent.
-          <br _ngcontent-c5=""><br _ngcontent-c5="">
+          <br><br>
       </div>
 
       </div>
 
-      <div _ngcontent-c5="" class="row clearfix">
+      <div class="row clearfix">
 
         
-        <div _ngcontent-c5="" class="services-block col-md-6 col-sm-6 col-xs-12">
-          <div _ngcontent-c5="" class="inner-box">
-            <div _ngcontent-c5="" class="upper-box">
-              <div _ngcontent-c5="" class="icon-box">
-                <span _ngcontent-c5="" class="icon flaticon-car"></span>
+        <div class="services-block col-md-6 col-sm-6 col-xs-12">
+          <div class="inner-box">
+            <div class="upper-box">
+              <div class="icon-box">
+                <span class="icon flaticon-car"></span>
               </div>
-              <span _ngcontent-c5="" class="number">01</span>
+              <span class="number">01</span>
             </div>
-            <div _ngcontent-c5="" class="lower-box">
-              <h3 _ngcontent-c5=""><a _ngcontent-c5="" href="http://www.trp-france.com/services.html">Véhicules</a></h3>
-              <div _ngcontent-c5="" class="text">A chaque catégorie de véhicule sa mission. Nous vous proposons un panel large de catégories allant de la berline au van.
+            <div class="lower-box">
+              <h3><a href="http://www.trp-france.com/services.html">Véhicules</a></h3>
+              <div class="text">A chaque catégorie de véhicule sa mission. Nous vous proposons un panel large de catégories allant de la berline au van.
               </div>
             </div>
 
@@ -228,17 +269,17 @@ où ils le souhaitent.
         </div>
 
         
-        <div _ngcontent-c5="" class="services-block col-md-6 col-sm-6 col-xs-12">
-          <div _ngcontent-c5="" class="inner-box">
-            <div _ngcontent-c5="" class="upper-box">
-              <div _ngcontent-c5="" class="icon-box">
-                <span _ngcontent-c5="" class="icon flaticon-social-1"></span>
+        <div class="services-block col-md-6 col-sm-6 col-xs-12">
+          <div class="inner-box">
+            <div class="upper-box">
+              <div class="icon-box">
+                <span class="icon flaticon-social-1"></span>
               </div>
-              <span _ngcontent-c5="" class="number">02</span>
+              <span class="number">02</span>
             </div>
-            <div _ngcontent-c5="" class="lower-box">
-              <h3 _ngcontent-c5=""><a _ngcontent-c5="" href="http://www.trp-france.com/services.html">Chauffeurs professionnels</a></h3>
-              <div _ngcontent-c5="" class="text">Nos chauffeurs sont tous des professionnels VTC soucieux de vous faire connaître leur métier.
+            <div class="lower-box">
+              <h3><a href="http://www.trp-france.com/services.html">Chauffeurs professionnels</a></h3>
+              <div class="text">Nos chauffeurs sont tous des professionnels VTC soucieux de vous faire connaître leur métier.
               </div>
             </div>
 
@@ -246,17 +287,17 @@ où ils le souhaitent.
         </div>
 
         
-        <div _ngcontent-c5="" class="services-block col-md-6 col-sm-6 col-xs-12">
-          <div _ngcontent-c5="" class="inner-box">
-            <div _ngcontent-c5="" class="upper-box">
-              <div _ngcontent-c5="" class="icon-box">
-                <span _ngcontent-c5="" class="icon flaticon-piggy-bank"></span>
+        <div class="services-block col-md-6 col-sm-6 col-xs-12">
+          <div class="inner-box">
+            <div class="upper-box">
+              <div class="icon-box">
+                <span class="icon flaticon-piggy-bank"></span>
               </div>
-              <span _ngcontent-c5="" class="number">03</span>
+              <span class="number">03</span>
             </div>
-            <div _ngcontent-c5="" class="lower-box">
-              <h3 _ngcontent-c5=""><a _ngcontent-c5="" href="http://www.trp-france.com/services.html">Une tarification forfaitaire</a></h3>
-              <div _ngcontent-c5="" class="text">Le tarif de nos prestations est connu à l'avance et son calcul est transparent :<br _ngcontent-c5="">
+            <div class="lower-box">
+              <h3><a href="http://www.trp-france.com/services.html">Une tarification forfaitaire</a></h3>
+              <div class="text">Le tarif de nos prestations est connu à l'avance et son calcul est transparent :<br>
                 TARIF = NOMBRE DE KM x 1,91 €
               </div>
             </div>
@@ -266,17 +307,17 @@ où ils le souhaitent.
 
 
         
-        <div _ngcontent-c5="" class="services-block col-md-6 col-sm-6 col-xs-12">
-          <div _ngcontent-c5="" class="inner-box">
-            <div _ngcontent-c5="" class="upper-box">
-              <div _ngcontent-c5="" class="icon-box">
-                <span _ngcontent-c5="" class="icon flaticon-monitor-1"></span>
+        <div class="services-block col-md-6 col-sm-6 col-xs-12">
+          <div class="inner-box">
+            <div class="upper-box">
+              <div class="icon-box">
+                <span class="icon flaticon-monitor-1"></span>
               </div>
-              <span _ngcontent-c5="" class="number">04</span>
+              <span class="number">04</span>
             </div>
-            <div _ngcontent-c5="" class="lower-box">
-              <h3 _ngcontent-c5=""><a _ngcontent-c5="" href="http://www.trp-france.com/services.html">Annulation sans frais</a></h3>
-              <div _ngcontent-c5="" class="text">Un contre-temps ? Un 
+            <div class="lower-box">
+              <h3><a href="http://www.trp-france.com/services.html">Annulation sans frais</a></h3>
+              <div class="text">Un contre-temps ? Un 
 changement de programme ? Pas de panique ! Vous pouvez annuler votre 
 réseervation jusqu'à 2h avant le rendez-vous.</div>
             </div>
@@ -292,19 +333,15 @@ réseervation jusqu'à 2h avant le rendez-vous.</div>
 </section>
 
 
+<div class="main-footer">
 
-</app-service-offer>
-</app-main>
-<app-footer _ngcontent-c0="" _nghost-c2="">
-<div _ngcontent-c2="" class="main-footer">
-
-  <div _ngcontent-c2="" class="footer-bottom">
-    <div _ngcontent-c2="" class="auto-container">
-      <div _ngcontent-c2="" class="row clearfix">
+  <div class="footer-bottom">
+    <div class="auto-container">
+      <div class="row clearfix">
 
         
-        <div _ngcontent-c2="" class="col-xs-12 text-center">
-          <div _ngcontent-c2="" class="copyright">© VCP - Vincent Chauffeur Privé - Chauffeur privé VTC sur Nantes, Loire Atlantique et Grand Ouest</div>
+        <div class="col-xs-12 text-center">
+          <div class="copyright">© VCP - Vincent Chauffeur Privé - Chauffeur privé VTC sur Nantes, Loire Atlantique et Grand Ouest</div>
         </div>
 
       </div>
@@ -313,8 +350,6 @@ réseervation jusqu'à 2h avant le rendez-vous.</div>
 
 
 </div>
-
-</app-footer>
     
 </div>
 <!--End pagewrapper-->
@@ -331,6 +366,8 @@ réseervation jusqu'à 2h avant le rendez-vous.</div>
 <script src="js/owl.js"></script>
 <script src="js/wow.js"></script>
 <script src="js/script.js"></script>
+<script src="js/vcp/estimate.js"></script>
+
 
 </body>
 </html>
