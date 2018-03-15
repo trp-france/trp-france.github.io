@@ -1,6 +1,6 @@
 (function($){
     "use strict";
-    var BACKEND_API_BOOK = 'https://trp.cleverapps.io/booking';
+    var BACKEND_API_BOOK = 'http://trp.cleverapps.io/booking';
 
     var rides = JSON.parse(localStorage.getItem("lastBookOptions"));
     var carChoice = localStorage.getItem("car-choice");
