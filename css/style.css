@@ -6046,3 +6046,8 @@ body.popup-visible{
 .text-uppercase{
 	text-transform:uppercase;	
 }
+
+.validation-picto{
+	float: left;
+	margin-right: 1em;
+}
