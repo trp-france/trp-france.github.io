@@ -38,6 +38,7 @@ vcp.estimate = (function($){
 
     var estimate = function() {
         if(check()) {
+            $('.preloader').fadeIn(500);
             var data = {
                 originPlaceId: placeIdOrigin,
                 destinationPlaceId: placeIdDestination
@@ -63,6 +64,9 @@ vcp.estimate = (function($){
             .fail(function(error){
                     console.log('ko', error)
 
+            })
+            .always(function(){
+                $('.preloader').fadeOut(500);
             });
         }
     };

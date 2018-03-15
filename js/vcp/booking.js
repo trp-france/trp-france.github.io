@@ -48,6 +48,8 @@
             category : carChoice
         };
 
+        $('.preloader').fadeIn(500);
+
         $.ajax(BACKEND_API_BOOK, {
             data : JSON.stringify(data),
             contentType : 'application/json',
@@ -60,6 +62,9 @@
             .fail(function(error){
                 console.log('ko', error)
 
+            })
+            .always(function(){
+                $('.preloader').fadeOut(500);
             })
     })
 
