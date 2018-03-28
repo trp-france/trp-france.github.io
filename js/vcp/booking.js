@@ -28,44 +28,47 @@
     };
 
     document.getElementById('btn-reserver').addEventListener('click', function(ev){
-        ev.preventDefault();
-        var data = {
-            customer : {
-                name: getV("name"),
-                email:getV("email"),
-                phone : getV("phone")
-            },
-            pickupLocation : {
-                placeId: placeOrigin.place_id,
-                location: placeOrigin.formatted_address
-            },
-            destinationLocation : {
-                placeId: placeDestination.place_id,
-                location: placeDestination.formatted_address
-            },
-            pickupDateTime : getV("dateTime"),
-            comment :document.querySelector('textarea[name="message"]').value,
-            category : carChoice
-        };
+        if(document.getElementById("reserver-votre-course").checkValidity()) {
+            ev.preventDefault();
+            var data = {
+                customer : {
+                    name: getV("name"),
+                    email:getV("email"),
+                    phone : getV("phone")
+                },
+                pickupLocation : {
+                    placeId: placeOrigin.place_id,
+                    location: placeOrigin.formatted_address
+                },
+                destinationLocation : {
+                    placeId: placeDestination.place_id,
+                    location: placeDestination.formatted_address
+                },
+                pickupDateTime : getV("dateTime"),
+                comment :document.querySelector('textarea[name="message"]').value,
+                category : carChoice
+            };
 
-        $('.preloader').fadeIn(500);
+            $('.preloader').fadeIn(500);
 
-        $.ajax(BACKEND_API_BOOK, {
-            data : JSON.stringify(data),
-            contentType : 'application/json',
-            type : 'POST'
-        })
-            .done(function(){
-                location.href="index.html?bookingConfirmation";
-
+            $.ajax(BACKEND_API_BOOK, {
+                data : JSON.stringify(data),
+                contentType : 'application/json',
+                type : 'POST'
             })
-            .fail(function(error){
-                console.log('ko', error)
+                .done(function(){
+                    location.href="index.html?bookingConfirmation";
 
-            })
-            .always(function(){
-                $('.preloader').fadeOut(500);
-            })
-    })
+                })
+                .fail(function(error){
+                    console.log('ko', error)
+
+                })
+                .always(function(){
+                    $('.preloader').fadeOut(500);
+                });
+        }
+
+    });
 
 })(window.jQuery);

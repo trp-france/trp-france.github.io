@@ -114,7 +114,7 @@ Tous conforts : Wi-Fi, eau, tablette...</p>
     <div class="booking-form-inner billing-section wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
 
       <div class="default-form">
-        <form id="reserver-votre-course" method="post" novalidate="" class="ng-untouched ng-pristine ng-valid">
+        <form id="reserver-votre-course" method="post"  class="ng-untouched ng-pristine ng-valid">
           <div class="row billing-details">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="sec-title">
@@ -148,27 +148,28 @@ Tous conforts : Wi-Fi, eau, tablette...</p>
                 <div class="form-group col-md-8 col-sm-12 col-xs-12">
                   <div class="field-label">Nom d'entreprise ou nom et prénom <span class="req">*</span></div>
                   <div class="field-inner">
-                    <input name="name" class="ng-untouched ng-pristine ng-valid" type="text">
+                    <input name="name" class="ng-untouched ng-pristine ng-valid" type="text" required>
                   </div>
                 </div>
 
                 <div class="form-group col-md-8 col-sm-12 col-xs-12">
                   <div class="field-label">Email<span class="req">*</span></div>
                   <div class="field-inner">
-                    <input name="email" class="ng-untouched ng-pristine ng-valid" type="text">
+                    <input name="email" class="ng-untouched ng-pristine ng-valid" type="text" required>
                   </div>
                 </div>
 
                 <div class="form-group col-md-8 col-sm-12 col-xs-12">
                   <div class="field-label">Téléphone<span class="req">*</span></div>
                   <div class="field-inner">
-                    <input name="phone" class="ng-untouched ng-pristine ng-valid" type="text"></div>
+                    <input name="phone" class="ng-untouched ng-pristine ng-valid" type="text" required>
+                  </div>
                 </div>
 
                 <div class="form-group col-md-8 col-sm-12 col-xs-12">
                   <div class="field-label">Date/Heure<span class="req">*</span></div>
                   <div class="field-inner">
-                    <input name="dateTime" class="" type="datetime-local">
+                    <input name="dateTime" class="" type="datetime-local" required>
                   </div>
                 </div>
 
@@ -178,7 +179,7 @@ Tous conforts : Wi-Fi, eau, tablette...</p>
                 </div>
 
                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                  <div class="btn-outer"><a class="theme-btn btn-style-three" id="btn-reserver">Réserver</a></div>
+                  <div class="btn-outer"><button type="submit" class="theme-btn btn-style-three" id="btn-reserver">Réserver</button></div>
                 </div>
               </div>
 
