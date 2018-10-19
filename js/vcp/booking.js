@@ -1,5 +1,7 @@
 (function($){
     "use strict";
+
+
     var BACKEND_API_BOOK = 'http://trp.cleverapps.io/booking';
 
     var rides = JSON.parse(localStorage.getItem("lastBookOptions"));
@@ -26,6 +28,9 @@
     var getV = function(attrName) {
         return document.querySelector('input[name="' + attrName + '"]').value
     };
+    var getSelectV = function(attrName) {
+        return document.querySelector('select[name="' + attrName + '"]').value
+    };
 
     document.getElementById('btn-reserver').addEventListener('click', function(ev){
         if(document.getElementById("reserver-votre-course").checkValidity()) {
@@ -44,7 +49,7 @@
                     placeId: placeDestination.place_id,
                     location: placeDestination.formatted_address
                 },
-                pickupDateTime : getV("dateTime"),
+                pickupDateTime : getV("date") + 'T' + getSelectV('heure') + ':' + getSelectV('minute'),
                 comment :document.querySelector('textarea[name="message"]').value,
                 category : carChoice
             };
@@ -70,5 +75,7 @@
         }
 
     });
+
+    $('#bookingDateTime').datepicker({ minDate: 0, maxDate: 60, dateFormat : 'yy-mm-dd'});
 
 })(window.jQuery);
