@@ -7,7 +7,7 @@ vcp.estimate = (function($){
         document.querySelector('.booking-confirmation').classList.remove('hidden');
     }
 
-    var BACKEND_API_RIDE = 'http://trp.cleverapps.io/rides';
+    var BACKEND_API_RIDE = 'https://trp.cleverapps.io/rides';
 
     var placeIdOrigin, placeIdDestination, lastBookOptions;
 
